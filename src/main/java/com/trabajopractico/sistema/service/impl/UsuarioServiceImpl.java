@@ -26,12 +26,12 @@ public class UsuarioServiceImpl implements UsuarioService{
         usuario.setNombre(object.getNombre());
         usuario.setContrasenia(object.getContrasenia());
         usuario.setCorreo(object.getCorreo());
-        usuario.setNumeroDni(object.getNumeroDni());
+        usuario.setDocumento(object.getDocumento());
         return usuarioRepo.save(usuario);
     }
 
     public Usuario get(int id) {
-        return usuarioRepo.findById(id).orElse(null);
+        return usuarioRepo.findById(id).orElse(new Usuario());
     }
 
     public List<Usuario> getAll() {

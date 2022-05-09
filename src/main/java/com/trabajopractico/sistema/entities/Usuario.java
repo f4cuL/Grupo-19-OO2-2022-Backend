@@ -18,8 +18,8 @@ public class Usuario {
     @GeneratedValue
     private int id;
     private String nombre;
-    @Column(name="numero_dni")
-    private int numeroDni;
+    private String apellido;
+    private int documento;
     private String correo;
     @Column(name="nombre_usuario")
     private String nombreUsuario;
@@ -32,13 +32,16 @@ public class Usuario {
       // Constructor vacio para hibernate
     }
 
-    public boolean isEstado() {
-        return estado;
+
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
+
 
     public int getId() {
         return this.id;
@@ -56,12 +59,12 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public int getNumeroDni() {
-        return this.numeroDni;
+    public int getDocumento() {
+        return this.documento;
     }
 
-    public void setNumeroDni(int numeroDni) {
-        this.numeroDni = numeroDni;
+    public void setDocumento(int documento) {
+        this.documento = documento;
     }
 
     public String getCorreo() {
@@ -88,6 +91,13 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
+    public boolean getEstado() {
+        return this.estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
 
 }
