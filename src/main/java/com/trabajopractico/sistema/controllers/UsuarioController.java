@@ -19,31 +19,31 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UsuarioController {
     @Autowired
-    UsuarioService usuService;
+    UsuarioService usuarioService;
 
     @PostMapping("/usuario")
     public Usuario add(Administrador usuario){
-        return usuService.add(usuario);
+        return usuarioService.add(usuario);
     }
 
     @GetMapping("/usuario")
     public List<Usuario> getAllUsers(){
-        return usuService.getAll();
+        return usuarioService.getAll();
     }
 
     @GetMapping("/usuario/{id}")
     public Usuario getUserById(@PathVariable int id){
-        return usuService.get(id);
+        return usuarioService.get(id);
     }
 
     @PutMapping("/usuario/{id}")
     public Usuario modifyUserById(@PathVariable int id, @RequestBody Usuario usuario){
-        return usuService.modify(id,usuario);
+        return usuarioService.modify(id,usuario);
     }
 
     @DeleteMapping("/usuario/{id}")
     public void deleteUserById(@PathVariable int id){
-        usuService.remove(id);
+        usuarioService.remove(id);
     }
 
 }

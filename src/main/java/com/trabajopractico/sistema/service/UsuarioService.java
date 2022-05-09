@@ -5,5 +5,4 @@ import com.trabajopractico.sistema.interfaces.GenericAbm;
 
 public interface UsuarioService extends GenericAbm<Usuario>{
 
-
 }
