@@ -23,7 +23,10 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     public Usuario modify(int id, Usuario object) {
         Usuario usuario = get(id);
-        usuario = object;
+        usuario.setNombre(object.getNombre());
+        usuario.setContrasenia(object.getContrasenia());
+        usuario.setCorreo(object.getCorreo());
+        usuario.setNumeroDni(object.getNumeroDni());
         return usuarioRepo.save(usuario);
     }
 

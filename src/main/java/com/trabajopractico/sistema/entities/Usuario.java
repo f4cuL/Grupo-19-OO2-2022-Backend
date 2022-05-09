@@ -24,11 +24,20 @@ public class Usuario {
     @Column(name="nombre_usuario")
     private String nombreUsuario;
     private String contrasenia;
+    private boolean estado;
     
     //su nombre, apellido, tipo y número de documento, correo electrónico, nombre de usuario y contrasenia.
 
     public Usuario() {
       // Constructor vacio para hibernate
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     public int getId() {
