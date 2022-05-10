@@ -18,5 +18,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario,Integer> {
     @Modifying
     @Query("Update Usuario u set u.estado = true where id = ?1")
     public void deleteById(int id);
+    
+    Usuario findByUsername(String username);
 
 }

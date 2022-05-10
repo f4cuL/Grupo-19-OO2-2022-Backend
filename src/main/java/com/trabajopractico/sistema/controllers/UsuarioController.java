@@ -47,5 +47,17 @@ public class UsuarioController {
     public void deleteUserById(@PathVariable int id){
         usuarioService.remove(id);
     }
+    
+    @GetMapping("/home")
+    public String home() {
+    	return "home";
+    }
+    
+    @GetMapping("/admin")
+    public String admin() {
+    	return "admin";
+    }
+    
+    
 
 }
