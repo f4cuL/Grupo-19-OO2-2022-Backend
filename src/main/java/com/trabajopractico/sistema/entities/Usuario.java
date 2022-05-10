@@ -17,7 +17,6 @@ public class Usuario {
     @Id
     @GeneratedValue
     private int id;
-    private String username;
     private String apellido;
     private int documento;
     private String correo;
@@ -49,14 +48,6 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return this.username;
-    }
-
-    public void setUsername(String nombre) {
-        this.username = nombre;
     }
 
     public int getDocumento() {

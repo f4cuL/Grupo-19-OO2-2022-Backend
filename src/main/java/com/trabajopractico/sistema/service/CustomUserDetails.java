@@ -3,21 +3,17 @@ package com.trabajopractico.sistema.service;
 import java.util.Collection;
 import java.util.Collections;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.trabajopractico.sistema.entities.Usuario;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.trabajopractico.sistema.entities.Usuario;
-
 @Component
 public class CustomUserDetails implements  UserDetails{
-
 	
 	private Usuario usuario;
-	
-	
 	
 	public CustomUserDetails() {
 	}
@@ -42,7 +38,7 @@ public class CustomUserDetails implements  UserDetails{
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return usuario.getUsername();
+		return usuario.getNombreUsuario();
 	}
 
 	@Override
