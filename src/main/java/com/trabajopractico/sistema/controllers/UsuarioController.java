@@ -32,17 +32,19 @@ public class UsuarioController {
         return usuarioService.add(usuario);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/usuario/admin")
     public Usuario add(@RequestBody Administrador usuario){
         return usuarioService.add(usuario);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/usuario/auditoria")
     public Usuario add(@RequestBody Auditoria usuario){
         return usuarioService.add(usuario);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('AUDITORIA')")
     @GetMapping("/usuario")
     public List<Usuario> getAllUsers(HttpServletRequest request){
         return usuarioService.getAll();
@@ -53,11 +55,13 @@ public class UsuarioController {
         return usuarioService.get(id);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/usuario/{id}")
     public Usuario modifyUserById(@PathVariable int id, @RequestBody Usuario usuario){
         return usuarioService.modify(id,usuario);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/usuario/{id}")
     public void deleteUserById(@PathVariable int id){
         usuarioService.remove(id);
