@@ -24,6 +24,8 @@ public class UsuarioServiceImpl implements UsuarioService{
     public Usuario modify(int id, Usuario object) {
         Usuario usuario = get(id);
         usuario.setNombreUsuario(object.getNombreUsuario());
+        usuario.setApellido(object.getApellido());
+        usuario.setNombre(object.getNombre());
         usuario.setContrasenia(object.getContrasenia());
         usuario.setCorreo(object.getCorreo());
         usuario.setDocumento(object.getDocumento());
