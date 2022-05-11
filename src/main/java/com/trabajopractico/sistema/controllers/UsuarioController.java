@@ -3,6 +3,7 @@ package com.trabajopractico.sistema.controllers;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import com.trabajopractico.sistema.entities.Administrador;
 import com.trabajopractico.sistema.entities.Auditoria;
@@ -28,7 +29,7 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @PostMapping("/usuario")
-    public Usuario add(@RequestBody Usuario usuario) throws Exception{
+    public Usuario add(@Valid @RequestBody Usuario usuario) throws Exception{
        if(usuarioService.findByNombre(usuario.getNombreUsuario())){
         return usuarioService.add(usuario);
        } else{
@@ -38,7 +39,7 @@ public class UsuarioController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/usuario/admin")
-    public Usuario add(@RequestBody Administrador usuario) throws Exception{
+    public Usuario add(@Valid @RequestBody Administrador usuario) throws Exception{
         if(usuarioService.findByNombre(usuario.getNombreUsuario())){
             return usuarioService.add(usuario);
            } else{
@@ -48,7 +49,7 @@ public class UsuarioController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/usuario/auditoria")
-    public Usuario add(@RequestBody Auditoria usuario) throws Exception {
+    public Usuario add(@Valid @RequestBody Auditoria usuario) throws Exception {
         if (usuarioService.findByNombre(usuario.getNombreUsuario())) {
             return usuarioService.add(usuario);
         } else {
@@ -59,6 +60,7 @@ public class UsuarioController {
     @PreAuthorize("hasRole('ADMIN') or hasRole('AUDITORIA')")
     @GetMapping("/usuario")
     public List<Usuario> getAllUsers(HttpServletRequest request){
+        System.out.println(request.isUserInRole("ADMIN"));
         return usuarioService.getAll();
     }
 
@@ -70,7 +72,7 @@ public class UsuarioController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/usuario/{id}")
-    public Usuario modifyUserById(@PathVariable int id, @RequestBody Usuario usuario){
+    public Usuario modifyUserById(@PathVariable int id, @Valid @RequestBody Usuario usuario){
         return usuarioService.modify(id,usuario);
     }
 

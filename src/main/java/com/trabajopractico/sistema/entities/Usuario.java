@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -17,12 +19,18 @@ public class Usuario {
     @Id
     @GeneratedValue
     private int id;
+    @NotNull
     private String nombre;
+    @NotNull
     private String apellido;
+    @NotNull
     private int documento;
+    @NotBlank
     private String correo;
     @Column(name="nombre_usuario")
+    @NotNull
     private String nombreUsuario;
+    @NotNull
     private String contrasenia;
     private boolean estado;
 
