@@ -42,7 +42,7 @@ public class UsuarioController {
         return usuarioService.add(usuario);
     }
 
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/usuario")
     public List<Usuario> getAllUsers(HttpServletRequest request){
         return usuarioService.getAll();
