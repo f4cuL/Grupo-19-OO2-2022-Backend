@@ -3,6 +3,7 @@ package com.trabajopractico.sistema.service;
 import java.util.Collection;
 import java.util.Collections;
 
+import com.trabajopractico.sistema.entities.Administrador;
 import com.trabajopractico.sistema.entities.Usuario;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -25,9 +26,13 @@ public class CustomUserDetails implements  UserDetails{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		System.out.println(this.usuario.getClass().toString());
-		//TODO LOGICA CON EL GETCLASS PARA LOS ROLES
-		return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+		if (this.usuario.getClass().equals(Usuario.class)) {
+			return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+		} else if (this.usuario.getClass().equals(Administrador.class)) {
+			return Collections.singleton(new SimpleGrantedAuthority("ROLE_ADMIN"));
+		} else {
+			return Collections.singleton(new SimpleGrantedAuthority("ROLE_AUDITOR"));
+		}
 	}
 
 	@Override

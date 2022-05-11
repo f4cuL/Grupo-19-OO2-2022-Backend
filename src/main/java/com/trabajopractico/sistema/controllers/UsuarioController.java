@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import com.trabajopractico.sistema.entities.Administrador;
+import com.trabajopractico.sistema.entities.Auditoria;
 import com.trabajopractico.sistema.entities.Usuario;
 import com.trabajopractico.sistema.service.UsuarioService;
 
@@ -28,6 +29,16 @@ public class UsuarioController {
 
     @PostMapping("/usuario")
     public Usuario add(@RequestBody Usuario usuario){
+        return usuarioService.add(usuario);
+    }
+
+    @PostMapping("/usuario/admin")
+    public Usuario add(@RequestBody Administrador usuario){
+        return usuarioService.add(usuario);
+    }
+
+    @PostMapping("/usuario/auditoria")
+    public Usuario add(@RequestBody Auditoria usuario){
         return usuarioService.add(usuario);
     }
 
