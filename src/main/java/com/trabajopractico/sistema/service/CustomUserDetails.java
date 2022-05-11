@@ -25,44 +25,38 @@ public class CustomUserDetails implements  UserDetails{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
 		System.out.println(this.usuario.getClass().toString());
-		return Collections.singleton(new SimpleGrantedAuthority("USER"));
+		//TODO LOGICA CON EL GETCLASS PARA LOS ROLES
+		return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
 	}
 
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
 		return usuario.getContrasenia();
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return usuario.getNombreUsuario();
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
