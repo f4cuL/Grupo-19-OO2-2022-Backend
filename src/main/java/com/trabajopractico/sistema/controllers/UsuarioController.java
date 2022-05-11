@@ -27,7 +27,7 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @PostMapping("/usuario")
-    public Usuario add(Administrador usuario){
+    public Usuario add(@RequestBody Usuario usuario){
         return usuarioService.add(usuario);
     }
 
