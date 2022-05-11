@@ -31,7 +31,6 @@ public class UsuarioController {
     public Usuario add(@RequestBody Usuario usuario){
         return usuarioService.add(usuario);
     }
-)
     @PostMapping("/usuario/admin")
     public Usuario add(@RequestBody Administrador usuario){
         return usuarioService.add(usuario);
