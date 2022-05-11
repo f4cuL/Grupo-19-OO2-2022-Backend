@@ -10,7 +10,6 @@ import com.trabajopractico.sistema.entities.Usuario;
 import com.trabajopractico.sistema.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,31 +35,31 @@ public class UsuarioController {
         return usuarioService.add(usuario);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/usuario/auditoria")
     public Usuario add(@RequestBody Auditoria usuario){
         return usuarioService.add(usuario);
     }
 
-    @PreAuthorize("hasRole('ADMIN') or hasRole('AUDITORIA')")
+   // @PreAuthorize("hasRole('ADMIN') or hasRole('AUDITORIA')")
     @GetMapping("/usuario")
     public List<Usuario> getAllUsers(HttpServletRequest request){
         return usuarioService.getAll();
     }
 
-    @PreAuthorize("hasRole('ADMIN') or hasRole('AUDITORIA')")
+   // @PreAuthorize("hasRole('ADMIN') or hasRole('AUDITORIA')")
     @GetMapping("/usuario/{id}")
     public Usuario getUserById(@PathVariable int id){
         return usuarioService.get(id);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/usuario/{id}")
     public Usuario modifyUserById(@PathVariable int id, @RequestBody Usuario usuario){
         return usuarioService.modify(id,usuario);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/usuario/{id}")
     public void deleteUserById(@PathVariable int id){
         usuarioService.remove(id);
