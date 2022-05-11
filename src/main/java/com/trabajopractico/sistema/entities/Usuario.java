@@ -17,6 +17,7 @@ public class Usuario {
     @Id
     @GeneratedValue
     private int id;
+    private String nombre;
     private String apellido;
     private int documento;
     private String correo;
@@ -29,6 +30,14 @@ public class Usuario {
 
     public Usuario() {
       // Constructor vacio para hibernate
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getApellido() {
