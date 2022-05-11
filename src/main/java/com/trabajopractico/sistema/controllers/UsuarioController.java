@@ -50,6 +50,7 @@ public class UsuarioController {
         return usuarioService.getAll();
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('AUDITORIA')")
     @GetMapping("/usuario/{id}")
     public Usuario getUserById(@PathVariable int id){
         return usuarioService.get(id);
