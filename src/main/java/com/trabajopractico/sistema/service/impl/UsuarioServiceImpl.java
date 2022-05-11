@@ -17,6 +17,10 @@ public class UsuarioServiceImpl implements UsuarioService{
         return usuarioRepo.save(object);
     }
 
+    public boolean findByNombre(String nombreUsuario) {
+        return (usuarioRepo.findByNombreUsuario(nombreUsuario)==null);
+    }
+
     public void remove(int id) {
         usuarioRepo.deleteById(id);
     }
