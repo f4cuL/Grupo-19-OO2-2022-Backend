@@ -31,8 +31,7 @@ public class UsuarioController {
     public Usuario add(@RequestBody Usuario usuario){
         return usuarioService.add(usuario);
     }
-
-    @PreAuthorize("hasRole('ADMIN')")
+)
     @PostMapping("/usuario/admin")
     public Usuario add(@RequestBody Administrador usuario){
         return usuarioService.add(usuario);
