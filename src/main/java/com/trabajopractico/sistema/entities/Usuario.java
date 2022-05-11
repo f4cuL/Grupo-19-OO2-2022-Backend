@@ -24,13 +24,12 @@ public class Usuario {
     private String nombreUsuario;
     private String contrasenia;
     private boolean estado;
-    
+
     //su nombre, apellido, tipo y número de documento, correo electrónico, nombre de usuario y contrasenia.
 
     public Usuario() {
       // Constructor vacio para hibernate
     }
-
 
     public String getApellido() {
         return apellido;
