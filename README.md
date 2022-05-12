@@ -82,7 +82,7 @@
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `Authorization` | `tokenJWT` | **Requerido**. ROL ADMIN/AUDITORIA |
+| `Authorization` | `tokenJWT` | **Requerido**. ROL ADMIN |
 | `id`      | `int` | numero entero perteneciente al id |
 
 
