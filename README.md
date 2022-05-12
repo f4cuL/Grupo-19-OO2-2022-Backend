@@ -30,7 +30,7 @@
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `Authorization` | `tokenJWT` | **Requerido**. ROL ADMIN/AUDITORIA |
-| `id`      | `int` | **Requerido**. ROL ADMIN/AUDITORIA |
+| `id`      | `int` | Número entero perteneciente al id |
 
 
 #### Agregar usuario
@@ -73,7 +73,7 @@
 | :-------- | :------- | :-------------------------------- |
 | `Authorization` | `tokenJWT` | **Requerido**. ROL ADMIN |
 | `Usuario`      | `Usuario` | Entidad usuario |
-| `id`      | `int` | numero entero perteneciente al id |
+| `id`      | `int` | Número entero perteneciente al id |
 
 #### Eliminar un usuario
 ```http
