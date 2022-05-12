@@ -60,7 +60,6 @@ public class UsuarioController {
     @PreAuthorize("hasRole('ADMIN') or hasRole('AUDITORIA')")
     @GetMapping("/usuario")
     public List<Usuario> getAllUsers(HttpServletRequest request){
-        System.out.println(request.isUserInRole("ADMIN"));
         return usuarioService.getAll();
     }
 
