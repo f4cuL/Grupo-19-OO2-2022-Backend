@@ -21,5 +21,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario,Integer> {
     
     Usuario findByNombreUsuario(String nombreUsuario);
 
+    //select e from aulas where edificion.nombre = aula.edificio
+    //select e from edificio where edificio.id = "id" 
+    
 
 }
